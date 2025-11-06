@@ -1,41 +1,67 @@
 # -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
 {
-    'name': "Test Estate",
-
-    'summary': """
-        Starting module for "Discover the JS framework, chapter 1: Owl components"
-    """,
-
-    'description': """
-        Starting module for "Discover the JS framework, chapter 1: Owl components"
-    """,
-
-    'author': "Shemyl696",
-    'website': "https://www.odoo.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Tutorials',
-    'version': '0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base', 'web'],
-    'application': True,
-    'installable': True,
-    'data': [
-        'views/templates.xml',
+    'name': 'TEST',
+    'version': '1.2',
+    'category': 'Sales/CRM',
+    'sequence': 15,
+    'summary': 'Track leads and close opportunities',
+    'description': "",
+    'website': 'https://www.odoo.com/page/crm',
+    'depends': [
+        'base_setup',
+        'sales_team',
+        'mail',
+        'calendar',
+        'resource',
+        'fetchmail',
+        'utm',
+        'web_tour',
+        'contacts',
+        'digest',
+        'phone_validation',
     ],
-    'assets': {
-        'awesome_owl.assets_playground': [
-            ('include', 'web._assets_helpers'),
-            'web/static/src/scss/pre_variables.scss',
-            'web/static/lib/bootstrap/scss/_variables.scss',
-            ('include', 'web._assets_bootstrap'),
-            ('include', 'web._assets_core'),
-            'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'awesome_owl/static/src/**/*',
-        ],
-    },
-    'license': 'AGPL-3'
+    'data': [
+        'security/crm_security.xml',
+        'security/ir.model.access.csv',
+
+        'data/crm_lead_prediction_data.xml',
+        'data/crm_lost_reason_data.xml',
+        'data/crm_stage_data.xml',
+        'data/crm_team_data.xml',
+        'data/digest_data.xml',
+        'data/mail_data.xml',
+        'data/crm_recurring_plan_data.xml',
+
+        'wizard/crm_lead_lost_views.xml',
+        'wizard/crm_lead_to_opportunity_views.xml',
+        'wizard/crm_lead_to_opportunity_mass_views.xml',
+        'wizard/crm_merge_opportunities_views.xml',
+
+        'views/assets.xml',
+        'views/calendar_views.xml',
+        'views/crm_recurring_plan_views.xml',
+        'views/crm_menu_views.xml',
+        'views/crm_lost_reason_views.xml',
+        'views/crm_stage_views.xml',
+        'views/crm_lead_views.xml',
+        'views/digest_views.xml',
+        'views/mail_activity_views.xml',
+        'views/res_config_settings_views.xml',
+        'views/res_partner_views.xml',
+        'views/utm_campaign_views.xml',
+        'report/crm_activity_report_views.xml',
+        'report/crm_opportunity_report_views.xml',
+        'views/crm_team_views.xml',
+    ],
+    'demo': [
+        'data/crm_team_demo.xml',
+        'data/mail_activity_demo.xml',
+        'data/crm_lead_demo.xml',
+    ],
+    'css': ['static/src/css/crm.css'],
+    'installable': True,
+    'application': True,
+    'auto_install': False
 }
