@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Awesome Clicker",
+    'name': "Awesome Clicker1",
 
     'summary': """
         Starting module for "Master the Odoo web framework, chapter 1: Build a Clicker game"
